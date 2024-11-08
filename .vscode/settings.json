@@ -1,0 +1,19 @@
+{
+    "python.analysis.typeCheckingMode": "strict",
+    "[python]": {
+        "editor.folding": true,
+        "editor.foldingHighlight": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.lineNumbers": "on",
+        "files.exclude": {
+            "**/__pycache__": true,
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true
+        },
+    }
+}
