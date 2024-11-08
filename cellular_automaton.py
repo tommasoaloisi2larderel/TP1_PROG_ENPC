@@ -23,7 +23,13 @@ def init_random(width: int) -> list[bool]:
     Return a random initial state for the automaton, `width` being the number
     of cells in the automaton.
     """
-    pass  # TODO
+    random_state: list[bool] = []
+    for _ in range(width):
+        if random.randint(0, 1) == 1:
+            random_state.append(True)
+        else:
+            random_state.append(False)
+    return random_state
 
 
 def init_single_middle(width: int) -> list[bool]:
@@ -31,7 +37,9 @@ def init_single_middle(width: int) -> list[bool]:
     Return an initial state such that all cells are dead except the one in the
     middle which is live. `width` is the number of cells in the automaton.
     """
-    pass  # TODO
+    state: list[bool] = [False for _ in range(width)]
+    state[width//2] = True
+    return state
 
 
 def step(row: list[bool]) -> list[bool]:

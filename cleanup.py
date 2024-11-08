@@ -1,38 +1,41 @@
-def p(n, f):
+from typing import Callable
+
+
+def truth_table(operator: str, f: Callable[[bool, bool], bool]):
     """
-    TODO
+    Donne la table de vérité de l'opérateur
     """
-    b = [False, True]
-    for i in b:
-        for j in b:
-            print(f"{i} {n} {j} = {f(i, j)}")
+    list_bool: list[bool] = [False, True]
+    for i in list_bool:
+        for j in list_bool:
+            print(f"{i} {operator} {j} = {f(i, j)}")
 
 
 if __name__ == "__main__":
-    p("&", lambda x, y: x and y)
-    p("|", lambda x, y: x or y)
-    p("^", lambda x, y: x ^ y)
+    truth_table("&", lambda x, y: x and y)
+    truth_table("|", lambda x, y: x or y)
+    truth_table("^", lambda x, y: x ^ y)
 
 
-def R(u):
+def alphabetical_order(word: str):
     """
-    TODO
+    Ecrit le mot avec les lettres dans l'ordre alphabétique
     """
-    s = []
-    while u:
+    alpha_word: list[str] = []
+    while word:
         i = None
         m = None
-        for j, k in enumerate(u):
+        for j, k in enumerate(word):
             if m is None or ord(k) < m:
                 m = ord(k)
                 i = j
         assert i is not None
-        s.append(u[i])
-        u = u[:i] + u[i + 1 :]
-    return "".join(s)
+        alpha_word.append(word[i])
+        word = word[:i] + word[i + 1:]
+    return "".join(alpha_word)
 
 
 if __name__ == "__main__":
-    print(R("qwertyuiop"))
-    print(R("asdfghjkl"))
-    print(R("zxcvbnm"))
+    print(alphabetical_order("qwertyuiop"))
+    print(alphabetical_order("asdfghjkl"))
+    print(alphabetical_order("zxcvbnm"))
